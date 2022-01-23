@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>final.png</title>
+    <meta http-equiv="imagetoolbar" content="no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      v\:* {
+        behavior: url(#default#VML);
+      }
+      html,
+      body {
+        overflow: hidden;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+      body {
+        margin: 10px;
+        height: 100%;
+
+        background: #435056;
+      }
+      #screenshot {
+        height: calc(100% - 20px);
+        width: calc(100% - 20px);
+        border: 1px solid #888;
+      }
+    </style>
+    <script src="js/openseadragon.min.js"></script>
+  </head>
+  <body>
+    <div id="screenshot"></div>
+    <script type="text/javascript">
+      var viewer = OpenSeadragon({
+        id: "screenshot",
+        prefixUrl: "images/",
+        showNavigator: true,
+        wrapHorizontal: false,
+        zoomPerScroll: 2,
+        animationTime: 0.6,
+        springStiffness: 6,
+        tileSources: [
+          {
+            getTileUrl: (level, x, y) => `data/${level}/${x}/${y}.png`,
+            width: 23708,
+            height: 21450,
+            tileSize: 256,
+            minLevel: 0,
+            maxLevel: 7,
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>
